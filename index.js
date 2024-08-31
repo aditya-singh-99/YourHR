@@ -17,24 +17,24 @@ app.use('/resume', resumeRouter)
 
 // Default error-handler
 app.use((err, req, res, next) => {
-    console.error(err.stack)
-    res.status(500).send({ msg: 'Something broke' })
+  console.error(err.stack)
+  res.status(500).send({ msg: 'Something broke' })
 })
 
 // Undefined routes
 app.use((req, res) => {
-    res.status(404).send('Route does not exist')
+  res.status(404).send('Route does not exist')
 })
 
 const port = process.env.PORT || 3000
 const start = async () => {
-    try {
-        await connectDB(process.env.MongoDB_URI)
-        app.listen(port, () => {
-            console.log(`Server is listening on port: ${port}`)
-        })
-    } catch (error) {
-        console.log(error)
-    }
+  try {
+    await connectDB(process.env.MongoDB_URI)
+    app.listen(port, () => {
+      console.log(`Server is listening on port: ${port}`)
+    })
+  } catch (error) {
+    console.log(error)
+  }
 }
 start()

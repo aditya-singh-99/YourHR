@@ -1,8 +1,8 @@
 import express from 'express'
 import 'dotenv/config'
-import connectDB from '../db/connect.js'
-import userRouter from '../routes/user.js'
-import resumeRouter from '../routes/resume.js'
+import connectDB from './db/connect.js'
+import userRouter from './routes/user.js'
+import resumeRouter from './routes/resume.js'
 
 const app = express()
 
@@ -42,5 +42,3 @@ const start = async () => {
   }
 }
 start()
-
-export default app
